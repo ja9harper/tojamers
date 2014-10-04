@@ -17,9 +17,13 @@ ActiveRecord::Schema.define(version: 20141003120122) do
   enable_extension "plpgsql"
 
   create_table "pitches", force: true do |t|
+    t.string   "body",       limit: 140
+    t.integer  "story_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pitches", ["story_id"], name: "index_pitches_on_story_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.string   "user"
@@ -30,12 +34,11 @@ ActiveRecord::Schema.define(version: 20141003120122) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
     t.string   "email"
     t.string   "phone"
     t.string   "password_digest"
-    t.string   "user_type"
+    t.boolean  "company"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
