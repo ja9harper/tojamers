@@ -1,7 +1,16 @@
-<%= link_to( "Click here to logout",session_path, method: 'delete') %> </p>
+<%= link_to( "Click here to logout",session_path, method: 'delete') %>
 </br>
-We will show their information here, and any of their stories
-</br>
-This persons EMAIL is <%= @user.email %>
+<%= link_to( "Edit your profile", edit_user_path ) %>
+<%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
 
+</p>
+</br>
+Hey, <%= @user.first_name %>!
+
+
+<br>
+<%= link_to('my stories', stories_path) %> <!-- broken, this is a hacked path. we need to nest resources carefully -->
+</br>
+<%= link_to('new story', new_story_path) %>
+</br>
 <%= link_to('home',root_path) %>

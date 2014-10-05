@@ -3,6 +3,16 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def index
+    if session[:user_id]
+      user = User.find(session[:user_id])
+      redirect_to(user_path(user))
+    else
+    redirect_to login_path
+    end
+  end
+
+
   def create
     user = User.find_by(email: params[:email])
     user = user.authenticate(params[:password]) if user #one line if statement
@@ -10,7 +20,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to(user_path(user))
     else
-      flash[:error] = "Incorrect username or password"
+      flash[:error] = "Sorry! Your password or username is wrong. Please try again!"
       redirect_to(login_path)
     end
   end

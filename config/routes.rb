@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'pitches#index'
   get '/login' => 'sessions#new'
   resource :session, only: [:create, :destroy]
-  resources :pitchs
-  resources :stories
-  resources :users do
-    member do
-      get "password"
-      patch "password", action: "update password"
-      get "confirm_delete"
-    end
+  resources :users
+  resources :stories do
+    resources :pitches
   end
+
+  get '/pitches' => 'pitches#index'
+  get '/profile' => 'sessions#index'
+
+
+
+
 
 
 end
