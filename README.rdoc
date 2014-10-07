@@ -1,4 +1,4 @@
-The Hook is an app that can connect job seekers and employers. It allows users to create story which explains who they are and what they are looking for. It allows job seekers to create pitches which employers can view and find out more. It allows companies to create job listings and reach job seekers with necessary skills.
+The Hook is an app that can connect job seekers and employers. It allows users to create a story which explains who they are and what they are looking for. It allows job seekers to create pitches which employers can view and find out more. It allows companies to create job listings as pitches and reach job seekers with necessary skills.
 
 As a user, I should be able to sign up and become a user.
 
