@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby "2.1.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -31,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
 gem 'faker'
+gem 'rails_12factor'
+gem 'fuzzy_match'
 
 # Use unicorn as the app server
 # gem 'unicorn'

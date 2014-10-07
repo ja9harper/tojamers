@@ -6,6 +6,7 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
 
 
   def index
+    @users = User.all
   end
 
   def new
@@ -17,16 +18,17 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
     @user.user_type = params[:user_type]
     @user.save
     session[:user_id] = @user.id
-    # binding.pry
+    session[:user_email] = @user.email
+    session[:user_role] = @user.role
     redirect_to user_path(@user)
   end
 
   def destroy
     user = User.find(params[:id])
-    binding.pry
     user.delete
-    binding.pry
     session[:user_id] = nil
+    session[:user_email] = nil
+    session[:user_role] = nil
     redirect_to root_path
   end
 
@@ -39,9 +41,13 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
   end
 
   def update
+    # binding.pry
     user = User.find(params[:id])
+    # binding.pry
     user.update(user_params)
+    # binding.pry
     user.save
+    # binding.pry
     redirect_to user_path(user)
   end
 
