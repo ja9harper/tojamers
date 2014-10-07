@@ -63,11 +63,12 @@ ActiveRecord::Schema.define(version: 20141006222637) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
     t.string   "phone"
     t.string   "password_digest"
-    t.boolean  "company"
+    t.string   "user_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role",            default: "user"
